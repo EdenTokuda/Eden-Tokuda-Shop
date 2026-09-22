@@ -2,136 +2,139 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eden Tokuda — Hắc Shop</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eden Tokuda Shop</title>
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-:root{--red:#ff2b0b;--orange:#ff7a18;--gold:#ffc15a;--bg:#050000;--panel:rgba(20,3,2,.9);--line:#6b1a0d}
-body{margin:0;background:#030000;color:#eee;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:-15%;z-index:-5;background:
-radial-gradient(circle at 15% 80%,rgba(255,56,0,.45),transparent 25%),
-radial-gradient(circle at 85% 70%,rgba(255,20,0,.4),transparent 25%),
-radial-gradient(circle at 50% 110%,rgba(255,116,0,.55),transparent 30%),
-linear-gradient(#020000,#180000 55%,#050000);animation:heat 7s ease-in-out infinite alternate}
-body:after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;opacity:.65;background-image:
-radial-gradient(circle,rgba(255,120,20,.9) 0 1px,transparent 2px),
-radial-gradient(circle,rgba(255,35,0,.8) 0 1px,transparent 2px);
-background-size:87px 137px,137px 177px;animation:embers 5s linear infinite}
-@keyframes heat{to{transform:scale(1.07);filter:saturate(1.35)}}@keyframes embers{to{background-position:20px -240px,-30px -300px}}
-.fire{position:fixed;bottom:-100px;left:-5%;width:110%;height:310px;z-index:-3;filter:blur(15px);background:
-radial-gradient(ellipse at 5% 100%,rgba(255,90,0,.8),transparent 25%),
-radial-gradient(ellipse at 25% 100%,rgba(255,20,0,.8),transparent 27%),
-radial-gradient(ellipse at 50% 100%,rgba(255,110,0,.8),transparent 28%),
-radial-gradient(ellipse at 75% 100%,rgba(255,25,0,.8),transparent 28%),
-radial-gradient(ellipse at 95% 100%,rgba(255,80,0,.8),transparent 25%);
-animation:fire 2.5s ease-in-out infinite alternate}
-@keyframes fire{to{transform:scaleY(1.25) translateY(-18px)}}
-header{position:sticky;top:0;z-index:30;background:rgba(4,0,0,.9);border-bottom:1px solid #4b1009;backdrop-filter:blur(14px)}
-.nav{height:76px;width:min(1200px,94%);margin:auto;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900;letter-spacing:1px}.brand img{width:46px;height:46px;object-fit:cover;border-radius:10px;border:1px solid #8b1e0d;box-shadow:0 0 20px #ff2b0b44}
-nav a{color:#ddd;text-decoration:none;margin-left:24px;font-size:14px}nav a:hover{color:#ff5b37}
-.container{width:min(1200px,92%);margin:auto}
-.hero{text-align:center;padding:62px 10px 50px}.hero-logo{width:140px;height:140px;object-fit:cover;border-radius:50%;border:2px solid #9d2612;box-shadow:0 0 50px #ff2b0b55}
-.badge{display:inline-block;margin-top:18px;padding:7px 14px;border:1px solid #8b2010;border-radius:99px;color:#ff785b;background:#250603;font-size:11px;letter-spacing:2px;font-weight:900}
-h1{font-size:clamp(45px,7vw,78px);margin:16px 0 8px;text-transform:uppercase;text-shadow:0 0 30px #ff2b0b88}h1 span{color:var(--red)}
-.hero p{max-width:700px;margin:0 auto 24px;color:#aaa;line-height:1.7}.btn{display:inline-block;padding:13px 22px;border-radius:11px;color:#fff;text-decoration:none;background:linear-gradient(135deg,#ff421a,#890000);font-weight:900}
-.title{font-size:30px;text-transform:uppercase;margin:20px 0}.title span{color:#ff4a25}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:linear-gradient(145deg,rgba(25,3,2,.97),rgba(7,0,0,.97));border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 20px 60px #0008;transition:.2s}.card:hover{transform:translateY(-5px);border-color:#bd3118}
-.cover{height:250px;border-radius:13px;overflow:hidden;background:#120000;border:1px solid #3b100a}.cover img{width:100%;height:100%;object-fit:cover}.card h3{font-size:22px;margin:15px 3px 7px}.desc{color:#999;font-size:14px;line-height:1.5;min-height:42px}.price{color:#ff5a34;font-size:20px;font-weight:900;margin:10px 3px}
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.plan{padding:11px 9px;text-align:center;border:1px solid #481109;border-radius:10px;background:#0b0101}.plan b{display:block;color:#ff6544;font-size:13px}.plan span{display:block;margin-top:4px;font-weight:900}
-.buy{width:100%;padding:12px;border:0;border-radius:10px;background:linear-gradient(135deg,#ff4218,#900000);color:#fff;font-weight:900;cursor:pointer}
-section#payment{margin-top:55px}.payment-box{display:grid;grid-template-columns:1fr 1fr;gap:22px}.box{background:rgba(13,1,1,.9);border:1px solid #4b120a;border-radius:18px;padding:24px}.box h2{margin-top:0}.bank{padding:11px;border:1px solid #32100a;background:#070000;border-radius:9px;margin-top:9px}.bank strong{color:#ff603a}
-footer{margin-top:65px;padding:30px;text-align:center;color:#777;border-top:1px solid #35100a}
-.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.86);align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}
-.modalbox{width:min(500px,100%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#180302,#080000);border:1px solid #8f2512;border-radius:18px;padding:23px;box-shadow:0 0 80px #ff2b0b22}.close{float:right;background:none;border:0;color:#aaa;font-size:27px;cursor:pointer}
-label{display:block;color:#bbb;font-size:13px;margin:10px 0 6px}select{width:100%;padding:13px;border-radius:10px;background:#080000;color:#fff;border:1px solid #56150b;font-size:15px}
-.confirm{margin-top:15px;width:100%;padding:13px;border:0;border-radius:10px;background:linear-gradient(135deg,#ff4218,#8c0000);color:#fff;font-weight:900;cursor:pointer}
-#payStep{display:none;text-align:center}.qr{width:min(340px,100%);border-radius:15px;border:2px solid #7d1d0e;box-shadow:0 0 35px #ff2b0b33;background:#fff}.amount{font-size:28px;color:#ff5935;font-weight:900;margin:10px}.small{font-size:12px;color:#888;line-height:1.6}.timer{color:#ffc15a;font-weight:900;font-size:18px;margin:10px}
-.back{margin-top:10px;background:#1b0503;border:1px solid #4e120a;color:#ddd}
-@media(max-width:850px){nav{display:none}.products,.payment-box{grid-template-columns:1fr}.plans{grid-template-columns:1fr 1fr}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#fff;background:#050000;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+:root{--red:#ff2115;--deep:#090000;--line:#8e160c;--muted:#b7aaa8}
+body:before{content:"";position:fixed;inset:0;z-index:-5;background:radial-gradient(circle at 15% 75%,#ff2a0d55,transparent 25%),radial-gradient(circle at 85% 70%,#ff250055,transparent 25%),radial-gradient(circle at 50% 105%,#ff6a003f,transparent 35%),linear-gradient(120deg,#020000,#160100 50%,#030000);animation:bg 8s ease-in-out infinite alternate}
+body:after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;background-image:radial-gradient(circle,#ff8a2a 0 1px,transparent 2px),radial-gradient(circle,#ff3215 0 1px,transparent 2px);background-size:120px 150px,180px 210px;opacity:.5;animation:embers 7s linear infinite}
+@keyframes bg{to{transform:scale(1.06);filter:saturate(1.35)}}@keyframes embers{to{background-position:20px -260px,-40px -340px}}
+.fire{position:fixed;z-index:-3;left:-10%;bottom:-160px;width:120%;height:400px;filter:blur(14px);background:radial-gradient(ellipse at 5% 100%,#ff5a00aa,transparent 24%),radial-gradient(ellipse at 22% 100%,#ff1800bb,transparent 25%),radial-gradient(ellipse at 42% 100%,#ff9a00aa,transparent 27%),radial-gradient(ellipse at 65% 100%,#ff2500bb,transparent 27%),radial-gradient(ellipse at 90% 100%,#ff6a00aa,transparent 24%);animation:fire 2.2s ease-in-out infinite alternate}@keyframes fire{to{transform:scaleY(1.25) translateY(-25px)}}
+header{position:sticky;top:0;z-index:50;background:#050000dd;backdrop-filter:blur(14px);border-bottom:1px solid #531008}.nav{max-width:1300px;width:94%;height:82px;margin:auto;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}.brand-mark{font-family:Georgia,serif;font-size:50px;line-height:.7;color:#fff;text-shadow:0 0 18px #ff2b0b;font-weight:900}.brand-name{font-family:Georgia,serif;font-size:28px;line-height:.8;font-weight:900;letter-spacing:1px}.brand-name span{display:block;color:#e51a12;font-size:22px;margin-top:8px}nav{display:flex;gap:4px;border:1px solid #6b160e;clip-path:polygon(0 0,98% 0,100% 50%,98% 100%,0 100%,2% 50%);background:#070000dd}nav a{color:#eee;text-decoration:none;padding:20px 38px;font-weight:800;letter-spacing:.5px}nav a:hover,nav a.active{background:linear-gradient(#2b0905,#120000);color:#ff3425;box-shadow:inset 0 -3px #ff2517}
+main{max-width:1300px;width:94%;margin:auto}.hero{text-align:center;padding:48px 0 30px}.hero h1{font-family:Georgia,serif;font-size:clamp(42px,7vw,78px);margin:0;text-shadow:0 0 25px #ff251077}.hero h1 span{color:#e51b12}.hero p{color:#aaa;max-width:720px;margin:14px auto 0}
+.section-title{font-family:Georgia,serif;text-align:center;text-transform:uppercase;letter-spacing:2px;margin:18px 0 24px;font-size:31px}.section-title span{color:#ff2b1d}
+.shop-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:stretch}.panel{background:linear-gradient(145deg,#100000ee,#050000ee);border:1px solid #7f170e;border-radius:18px;padding:20px;box-shadow:0 18px 70px #000b;position:relative;overflow:hidden}.panel:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 20%,#ff32150b 50%,transparent 80%)}.step-title{display:flex;align-items:center;gap:14px;font-size:24px;font-weight:900;margin:2px 0 18px}.step{width:38px;height:38px;border-radius:50%;border:2px solid #ff3827;display:grid;place-items:center;color:#fff;box-shadow:0 0 20px #ff251144}
+.product{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;border:1px solid #6d170e;border-radius:15px;padding:14px;margin:12px 0;background:#080000c9;transition:.2s}.product:hover,.product.selected{border-color:#ff2b1b;box-shadow:0 0 24px #ff1f1025}.product img{width:150px;height:120px;object-fit:cover;border-radius:11px;border:1px solid #55120c}.product h3{margin:0 0 8px;font-size:22px}.product p{margin:0;color:#a99d9a}.price{color:#ff2d1e;font-weight:900;font-size:24px;margin-top:13px}.isle{display:block}.isle-top{display:flex;gap:15px;align-items:center}.isle-top img{width:150px;height:120px;object-fit:cover;border-radius:11px}.isle h3{margin:0;font-size:22px}.isle p{color:#aaa}.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:13px}.plan{border:1px solid #6b180f;border-radius:10px;padding:12px 6px;text-align:center;background:#070000}.plan b{display:block}.plan span{display:block;color:#ff2c1d;font-weight:900;margin-top:6px}
+.selectbox{width:100%;padding:15px;border:1px solid #8a190f;border-radius:11px;background:#070000;color:#fff;font-size:16px;margin-bottom:14px}.summary{border:1px solid #6c160d;border-radius:14px;padding:13px;display:flex;align-items:center;gap:14px;background:#080000}.summary img{width:70px;height:70px;object-fit:cover;border-radius:9px}.summary h3{margin:0 0 7px}.summary .right{margin-left:auto;text-align:right}.summary .right span{display:block;color:#aaa}.summary .right strong{color:#ff2d1e;font-size:24px}.hint{text-align:center;color:#b7aaa8;margin:18px 0}.qr-title{text-align:center;color:#fff;font-size:22px;font-weight:900;margin:18px 0 10px}.qr-title:before,.qr-title:after{content:"➜";color:#ff2b1c;margin:0 12px}.qr-title:after{content:"➜";display:inline-block;transform:scaleX(-1)}.qr-wrap{text-align:center}.qr{width:min(330px,90%);background:#fff;padding:7px;border-radius:14px;border:2px solid #eee;box-shadow:0 0 35px #ff2b1c25}.timer{margin:8px auto 0;border:1px solid #6b180f;border-radius:10px;padding:9px;max-width:330px;text-align:center;font-size:18px}.timer span{color:#ff2c1d;font-weight:900}.paynote{text-align:center;color:#aaa;font-size:13px;line-height:1.6}.btn{width:100%;border:0;border-radius:11px;padding:14px;color:#fff;background:linear-gradient(135deg,#ff3c25,#920700);font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 8px 25px #ff1c1022}.btn:hover{filter:brightness(1.15)}
+.info{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px}.info .panel{padding:20px}.bank-row{border:1px solid #4b120c;border-radius:9px;background:#070000;padding:12px;margin:8px 0}.bank-row strong{color:#ff4b39}footer{text-align:center;color:#766b69;border-top:1px solid #42110b;margin:45px 0 0;padding:25px}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:#000c;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.modalbox{width:min(520px,100%);max-height:94vh;overflow:auto;border:1px solid #8f1b10;border-radius:17px;background:linear-gradient(145deg,#160000,#050000);padding:22px;box-shadow:0 0 80px #ff2b0b2b}.close{float:right;border:0;background:none;color:#aaa;font-size:28px;cursor:pointer}.modal h2{margin-top:0}.muted{color:#aaa}.hidden{display:none}
+@media(max-width:1000px){nav a{padding:18px 16px}.shop-grid{grid-template-columns:1fr}.info{grid-template-columns:1fr}}
+@media(max-width:650px){.nav{height:auto;padding:12px 0;gap:10px;align-items:flex-start}.brand-mark{font-size:38px}.brand-name{font-size:21px}.brand-name span{font-size:16px}nav{display:none}.product{grid-template-columns:100px 1fr}.product img,.isle-top img{width:100px;height:90px}.plans{grid-template-columns:1fr 1fr}.step-title{font-size:20px}.panel{padding:14px}}
+
+.music-btn{position:fixed;right:18px;bottom:18px;z-index:50;width:52px;height:52px;border:1px solid #ff3b22;border-radius:50%;background:rgba(8,0,0,.88);color:#fff;box-shadow:0 0 18px #ff250066, inset 0 0 12px #ff250022;cursor:pointer;font-size:21px;transition:.2s}
+.music-btn:hover{transform:scale(1.08);box-shadow:0 0 26px #ff250099}
+.music-btn.playing{animation:musicPulse 1.2s ease-in-out infinite}
+@keyframes musicPulse{50%{box-shadow:0 0 28px #ff2500bb,inset 0 0 18px #ff250055}}
+.music-note{position:fixed;right:78px;bottom:25px;z-index:50;background:rgba(8,0,0,.9);border:1px solid #6f120c;border-radius:10px;padding:8px 12px;color:#ddd;font-size:12px;opacity:0;transform:translateX(8px);pointer-events:none;transition:.25s}
+.music-note.show{opacity:1;transform:translateX(0)}
+
+.music-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#3a0905ee 0%,#080000f5 45%,#000 100%);backdrop-filter:blur(8px);padding:20px;transition:opacity .45s ease,visibility .45s ease}.music-gate.hidden{opacity:0;visibility:hidden;pointer-events:none}.gate-box{width:min(520px,92vw);text-align:center;border:1px solid #ff321e;border-radius:22px;padding:42px 28px;background:linear-gradient(145deg,#180000f5,#050000f5);box-shadow:0 0 70px #ff2b0b35,inset 0 0 30px #ff2b0b12}.gate-logo{font-family:Georgia,serif;font-size:clamp(38px,9vw,64px);font-weight:900;letter-spacing:2px;text-shadow:0 0 25px #ff2b0b}.gate-logo span{color:#ef2115}.gate-sub{color:#bdb0ad;margin:12px 0 26px}.gate-btn{border:0;border-radius:13px;padding:16px 34px;color:#fff;background:linear-gradient(135deg,#ff3d25,#9d0800);font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 8px 30px #ff1d122e;transition:.2s}.gate-btn:hover{transform:translateY(-2px);filter:brightness(1.12)}.gate-icon{font-size:42px;margin-bottom:10px;animation:gatePulse 1.3s ease-in-out infinite}@keyframes gatePulse{50%{transform:scale(1.08);filter:drop-shadow(0 0 12px #ff321e)}}
 </style>
 </head>
 <body>
+<div class="music-gate" id="musicGate">
+  <div class="gate-box">
+    <div class="gate-icon">🎵</div>
+    <div class="gate-logo">EDEN <span>TOKUDA</span></div>
+    <div class="gate-sub">Bấm vào nút bên dưới để vào shop và bật nhạc nền</div>
+    <button class="gate-btn" id="enterShopBtn" type="button">🔥 BẤM VÀO ĐÂY ĐỂ VÀO SHOP</button>
+  </div>
+</div>
 <div class="fire"></div>
 <header><div class="nav">
-<a class="brand" href="#home"><img src="assets/the-isle.png" alt="Eden Tokuda"><span>EDEN TOKUDA</span></a>
-<nav><a href="#home">Trang chủ</a><a href="#products">Sản phẩm</a><a href="#payment">Thanh toán</a><a href="#contact">Liên hệ</a></nav>
+<a href="#top" class="brand"><div class="brand-mark">S</div><div class="brand-name">EDEN<span>TOKUDA</span></div></a>
+<nav><a href="#top">⌂ &nbsp; TRANG CHỦ</a><a href="#shop">▣ &nbsp; SẢN PHẨM</a><a class="active" href="#payment">▤ &nbsp; THANH TOÁN</a><a href="#contact">☎ &nbsp; LIÊN HỆ</a></nav>
 </div></header>
-
-<section class="hero container" id="home">
-<img class="hero-logo" src="assets/the-isle.png" alt="Eden Tokuda">
-<div class="badge">EDEN TOKUDA SHOP</div>
-<h1>HẮC <span>SHOP</span></h1>
-<p>Shop Eden Tokuda — giao diện đỏ lửa, hiệu ứng rực cháy và thanh toán bằng VietQR.</p>
-<a class="btn" href="#products">XEM SẢN PHẨM</a>
-</section>
-
-<section class="container" id="products">
-<h2 class="title">Danh sách <span>sản phẩm</span></h2>
-<div class="products">
-<article class="card"><div class="cover"><img src="assets/batman.png" alt="Hắc Bat Man"></div><h3>Hắc Bat Man</h3><div class="desc">Sản phẩm Hắc Bat Man.</div><div class="price">40.000đ</div><button class="buy" onclick="openOrder('Hắc Bat Man','fixed')">MUA NGAY</button></article>
-<article class="card"><div class="cover"><img src="assets/yq.png" alt="Hắc YQ"></div><h3>Hắc YQ</h3><div class="desc">Sản phẩm Hắc YQ.</div><div class="price">40.000đ</div><button class="buy" onclick="openOrder('Hắc YQ','fixed')">MUA NGAY</button></article>
-<article class="card"><div class="cover"><img src="assets/the-isle.png" alt="Hắc The Isle"></div><h3>Hắc The Isle</h3><div class="desc">Chọn gói sử dụng.</div><div class="plans">
-<div class="plan"><b>Ngày</b><span>50.000đ</span></div><div class="plan"><b>Tuần</b><span>250.000đ</span></div><div class="plan"><b>Tháng</b><span>500.000đ</span></div><div class="plan"><b>Vĩnh viễn</b><span>1.000.000đ</span></div>
-</div><button class="buy" onclick="openOrder('Hắc The Isle','isle')">CHỌN GÓI</button></article>
+<main id="top">
+<section class="hero"><h1>EDEN <span>TOKUDA SHOP</span></h1><p>Hệ thống chọn gói và thanh toán VietQR nhanh chóng.</p></section>
+<section id="shop">
+<div class="shop-grid">
+<div class="panel">
+<div class="step-title"><span class="step">1</span> CHỌN GÓI DỊCH VỤ</div>
+<div class="product selected" onclick="selectProduct('Hắc Bat Man',40000,'assets/batman.png')"><img src="assets/batman.png"><div><h3>Hắc Bat Man</h3><p>Gói dịch vụ Hắc Bat Man</p><div class="price">40.000đ</div></div></div>
+<div class="product" onclick="selectProduct('Hắc YQ',40000,'assets/yq.png')"><img src="assets/yq.png"><div><h3>Hắc YQ</h3><p>Gói dịch vụ Hắc YQ</p><div class="price">40.000đ</div></div></div>
+<div class="product isle"><div class="isle-top"><img src="assets/the-isle.png"><div><h3>Hắc The Isle</h3><p>Chọn gói phù hợp với nhu cầu</p></div></div><div class="plans"><div class="plan"><b>Ngày</b><span>50.000đ</span></div><div class="plan"><b>Tuần</b><span>250.000đ</span></div><div class="plan"><b>Tháng</b><span>500.000đ</span></div><div class="plan"><b>Vĩnh viễn</b><span>1.000.000đ</span></div></div><button class="btn" style="margin-top:12px" onclick="openOrder('Hắc The Isle','isle')">CHỌN GÓI THE ISLE</button></div>
+<button class="btn" onclick="openOrder('Hắc Bat Man','fixed')">MUA HẮC BAT MAN — 40.000đ</button>
+<button class="btn" style="margin-top:9px" onclick="openOrder('Hắc YQ','fixed')">MUA HẮC YQ — 40.000đ</button>
+</div>
+<div class="panel" id="payment">
+<div class="step-title"><span class="step">2</span> XÁC NHẬN ĐƠN HÀNG</div>
+<div class="summary"><img id="summaryImg" src="assets/batman.png"><div><h3 id="summaryName">Hắc Bat Man</h3><p class="muted" id="summaryDesc">Gói dịch vụ Hắc Bat Man</p></div><div class="right"><span>Số tiền</span><strong id="summaryAmount">40.000đ</strong></div></div>
+<p class="hint">Vui lòng thanh toán đúng số tiền để đơn hàng được xử lý nhanh nhất.</p>
+<div class="qr-title">QUÉT QR ĐỂ THANH TOÁN</div>
+<div class="qr-wrap"><img id="qr" class="qr" src="assets/qr-payment.png" alt="VietQR thanh toán"></div>
+<div class="timer">◷ &nbsp; Thời gian chờ thanh toán: <span id="timer">15:00</span></div>
+<p class="paynote">Sau khi thanh toán, vui lòng giữ lại giao dịch để đối soát.<br><b style="color:#ff2b1c">Vui lòng không tắt trang cho đến khi hoàn tất.</b></p>
+</div>
 </div>
 </section>
+<section class="info">
+<div class="panel"><h2>THÔNG TIN THANH TOÁN</h2><div class="bank-row">Ngân hàng: <strong>MB Bank</strong></div><div class="bank-row">Chủ tài khoản: <strong>LAM BAO SON</strong></div><div class="bank-row">Số tài khoản: <strong>666627916666</strong></div></div>
+<div class="panel"><h2>HƯỚNG DẪN</h2><p class="muted" style="line-height:1.7">Chọn sản phẩm → chọn gói → hệ thống tạo QR theo đúng số tiền → quét bằng ứng dụng ngân hàng → chuyển khoản chính xác.</p></div>
+</section>
+<footer id="contact">☠ — EDEN TOKUDA SHOP — ⚔<br><small>© 2026 Eden Tokuda</small></footer>
+</main>
+<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><div id="choose"><h2>🔥 Chọn gói dịch vụ</h2><p class="muted" id="modalProduct"></p><select id="pkg" class="selectbox"></select><button class="btn" onclick="confirmOrder()">XÁC NHẬN ĐƠN</button></div><div id="done" class="hidden"><h2>💳 Thanh toán</h2><p id="doneText" class="muted"></p><div style="text-align:center"><img id="modalQr" class="qr" style="max-width:300px" src="assets/qr-payment.png"></div><div class="amount" id="doneAmount" style="text-align:center;color:#ff2b1c;font-size:28px;font-weight:900;margin:10px"></div><button class="btn" onclick="closeModal()">ĐÓNG</button></div></div></div>
 
-<section class="container" id="payment"><h2 class="title">Thanh <span>toán</span></h2>
-<div class="payment-box">
-<div class="box"><h2>💳 Thông tin nhận tiền</h2><div class="bank">Ngân hàng: <strong>MB Bank</strong></div><div class="bank">Chủ TK: <strong>LAM BAO SON</strong></div><div class="bank">Số TK: <strong>666627916666</strong></div><p style="color:#999;line-height:1.6">Khi đặt hàng, QR sẽ tự tạo theo đúng số tiền của gói đã chọn.</p></div>
-<div class="box"><h2>📲 VietQR</h2><p style="color:#999">QR mẫu bạn cung cấp được giữ trong thư mục assets. QR thanh toán theo đơn sẽ được tạo động để ghi đúng số tiền.</p></div>
-</div></section>
-<footer id="contact">© 2026 EDEN TOKUDA — HẮC SHOP</footer>
-
-<div class="modal" id="modal"><div class="modalbox">
-<button class="close" onclick="closeOrder()">×</button>
-<div id="chooseStep"><h2>🧾 Chọn gói dịch vụ</h2><p id="selectedProduct" style="color:#ff5b35;font-weight:900"></p>
-<label>Chọn gói</label>
-<select id="package">
-<option value="50000">Hắc The Isle — Gói ngày (50k)</option>
-<option value="250000">Hắc The Isle — Gói tuần (250k)</option>
-<option value="500000">Hắc The Isle — Gói tháng (500k)</option>
-<option value="1000000">Hắc The Isle — Gói vĩnh viễn (1000k)</option>
-</select>
-<button class="confirm" onclick="showPayment()">XÁC NHẬN ĐƠN</button>
-<p class="small">Chỉ cần chọn gói. Không yêu cầu nhập Zalo, Discord hay ghi chú.</p></div>
-<div id="payStep"><h2>🔥 THANH TOÁN</h2><p id="payProduct" style="font-weight:900"></p><div class="amount" id="amount"></div>
-<img class="qr" id="dynamicQr" alt="VietQR thanh toán">
-<div class="timer">Mã QR có hiệu lực trong <span id="count">15:00</span></div>
-<p class="small">Quét mã bằng ứng dụng ngân hàng và chuyển <b>đúng số tiền</b> hiển thị.<br>Nội dung chuyển khoản được tạo tự động theo đơn.</p>
-<button class="confirm back" onclick="backChoose()">← ĐỔI GÓI</button></div>
-</div></div>
+<audio id="bgMusic" preload="auto" loop playsinline>
+  <source src="assets/eden-song.mp3" type="audio/mpeg">
+</audio>
+<div class="music-note" id="musicNote">Nhạc nền: Eden Tokuda</div>
+<button class="music-btn" id="musicBtn" type="button" aria-label="Bật/tắt nhạc">🔊</button>
 <script>
-const prices={40000:'Gói 40k',50000:'Gói ngày',250000:'Gói tuần',500000:'Gói tháng',1000000:'Gói vĩnh viễn'};
-let selectedProduct='',selectedType='',timer=null,seconds=900;
-function openOrder(name,type){
- selectedProduct=name;
- selectedType=type;
- document.getElementById('modal').classList.add('open');
- document.getElementById('chooseStep').style.display='block';
- document.getElementById('payStep').style.display='none';
- document.getElementById('selectedProduct').textContent='Sản phẩm: '+name;
- const sel=document.getElementById('package');
- if(type==='fixed'){sel.disabled=false;sel.innerHTML='<option value="40000">'+name+' — 40.000đ</option>';}
- else if(type==='isle'){sel.disabled=false;sel.innerHTML='<option value="50000">Hắc The Isle — Gói ngày (50k)</option><option value="250000">Hắc The Isle — Gói tuần (250k)</option><option value="500000">Hắc The Isle — Gói tháng (500k)</option><option value="1000000">Hắc The Isle — Gói vĩnh viễn (1000k)</option>';}
+const data={
+ 'Hắc Bat Man':{type:'fixed',price:40000,img:'assets/batman.png'},
+ 'Hắc YQ':{type:'fixed',price:40000,img:'assets/yq.png'},
+ 'Hắc The Isle':{type:'isle',img:'assets/the-isle.png',plans:[['Gói ngày',50000],['Gói tuần',250000],['Gói tháng',500000],['Gói vĩnh viễn',1000000]]}
+};
+let selected='Hắc Bat Man', countdown=900, timerId=null;
+function fmt(n){return n.toLocaleString('vi-VN')+'đ'}
+function qrUrl(amount,product){return 'https://img.vietqr.io/image/970422-666627916666-compact2.png?amount='+amount+'&addInfo='+encodeURIComponent('EDEN '+product.replaceAll(' ','')+' '+amount)+'&accountName='+encodeURIComponent('LAM BAO SON')}
+function updateMain(product,amount,img){document.getElementById('summaryName').textContent=product;document.getElementById('summaryDesc').textContent='Gói dịch vụ '+product;document.getElementById('summaryAmount').textContent=fmt(amount);document.getElementById('summaryImg').src=img;document.getElementById('qr').src=qrUrl(amount,product)}
+function selectProduct(product,amount,img){selected=product;document.querySelectorAll('.product').forEach(x=>x.classList.remove('selected'));event.currentTarget.classList.add('selected');updateMain(product,amount,img);document.getElementById('payment').scrollIntoView({behavior:'smooth',block:'center'})}
+function openOrder(product,type){selected=product;const d=data[product];document.getElementById('modal').classList.add('open');document.getElementById('choose').classList.remove('hidden');document.getElementById('done').classList.add('hidden');document.getElementById('modalProduct').textContent=product;const s=document.getElementById('pkg');s.innerHTML='';if(type==='fixed'){s.innerHTML='<option value="'+d.price+'">'+product+' — '+fmt(d.price)+'</option>'}else d.plans.forEach(p=>s.innerHTML+='<option value="'+p[1]+'">'+product+' — '+p[0]+' ('+fmt(p[1])+')</option>')}
+function confirmOrder(){const amount=Number(document.getElementById('pkg').value);const d=data[selected];document.getElementById('choose').classList.add('hidden');document.getElementById('done').classList.remove('hidden');document.getElementById('doneText').textContent='Thanh toán cho '+selected;document.getElementById('doneAmount').textContent=fmt(amount);document.getElementById('modalQr').src=qrUrl(amount,selected);updateMain(selected,amount,d.img);startTimer()}
+function closeModal(){document.getElementById('modal').classList.remove('open');if(timerId)clearInterval(timerId)}
+function startTimer(){countdown=900;clearInterval(timerId);const el=document.getElementById('timer');const tick=()=>{let m=Math.floor(countdown/60),s=countdown%60;el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(countdown<=0)clearInterval(timerId);countdown--};tick();timerId=setInterval(tick,1000)}
+
+const bgMusic=document.getElementById('bgMusic');
+const musicBtn=document.getElementById('musicBtn');
+const musicNote=document.getElementById('musicNote');
+const musicGate=document.getElementById('musicGate');
+const enterShopBtn=document.getElementById('enterShopBtn');
+let musicUnlocked=false;
+
+function setMusicUI(){
+  const playing=!bgMusic.paused;
+  musicBtn.textContent=playing?'🔊':'🔇';
+  musicBtn.classList.toggle('playing',playing);
 }
-function closeOrder(){document.getElementById('modal').classList.remove('open');if(timer)clearInterval(timer)}
-function showPayment(){
- const val=Number(document.getElementById('package').value);
- if(!val){alert('Sản phẩm này chưa có giá online.');return}
- const label=prices[val];
- document.getElementById('chooseStep').style.display='none';
- document.getElementById('payStep').style.display='block';
- document.getElementById('payProduct').textContent=selectedProduct+' — '+label;
- document.getElementById('amount').textContent=val.toLocaleString('vi-VN')+'đ';
- const info='EDEN '+selectedProduct.replaceAll(' ','')+' '+label.replaceAll(' ','');
- const url='https://img.vietqr.io/image/970422-666627916666-compact2.png?amount='+val+'&addInfo='+encodeURIComponent(info)+'&accountName='+encodeURIComponent('LAM BAO SON');
- document.getElementById('dynamicQr').src=url;
- seconds=900;updateTimer();if(timer)clearInterval(timer);timer=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timer)}},1000);
+function startMusic(){
+  if(!bgMusic) return Promise.reject();
+  bgMusic.volume=0.55;
+  bgMusic.loop=true;
+  const p=bgMusic.play();
+  return (p && typeof p.then==='function') ? p : Promise.resolve();
 }
-function updateTimer(){const m=String(Math.floor(seconds/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');document.getElementById('count').textContent=m+':'+s}
-function backChoose(){document.getElementById('payStep').style.display='none';document.getElementById('chooseStep').style.display='block'}
-window.onclick=e=>{if(e.target===document.getElementById('modal'))closeOrder()}
+enterShopBtn.addEventListener('click',async()=>{
+  try{
+    await startMusic();
+    musicUnlocked=true;
+    setMusicUI();
+  }catch(e){
+    setMusicUI();
+  }
+  musicGate.classList.add('hidden');
+  setTimeout(()=>musicGate.remove(),500);
+});
+musicBtn.addEventListener('click',()=>{
+  if(bgMusic.paused) startMusic().then(()=>{musicUnlocked=true;setMusicUI();}).catch(setMusicUI);
+  else bgMusic.pause();
+  setMusicUI();
+});
+setMusicUI();
+
+updateMain('Hắc Bat Man',40000,'assets/batman.png');startTimer();
 </script>
 </body></html>

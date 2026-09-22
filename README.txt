@@ -1,17 +1,25 @@
-EDEN TOKUDA V3 — GIAO DIỆN THANH TOÁN
+EDEN TOKUDA SHOP
 
-Bản này đã:
-- Bỏ 2 ô "Zalo/Discord" và "Ghi chú".
-- Chỉ còn 1 dòng chọn gói.
-- Bấm "XÁC NHẬN ĐƠN" sẽ chuyển sang màn hình thanh toán.
-- QR VietQR được tạo động theo đúng số tiền gói The Isle.
-- MB Bank: 666627916666, LAM BAO SON.
-- Giao diện đỏ/đen, lửa và menu theo mẫu.
+Website tĩnh cho GitHub Pages.
 
-GitHub Pages:
-1. Tạo repository Public.
-2. Upload index.html và toàn bộ thư mục assets/.
-3. Settings > Pages > Deploy from a branch > main > /root > Save.
-4. Mở link GitHub Pages được cấp.
+Cấu trúc:
+- index.html
+- assets/batman.png
+- assets/yq.png
+- assets/the-isle.png
+- assets/qr-payment.png
 
-Lưu ý: QR động dùng Quick Link của VietQR. Theo tài liệu VietQR, Quick Link hỗ trợ tham số amount, addInfo và accountName.
+Giá:
+- Hắc Bat Man: 40.000đ
+- Hắc YQ: 40.000đ
+- The Isle: 50.000đ / 250.000đ / 500.000đ / 1.000.000đ
+
+Thanh toán MB Bank:
+LAM BAO SON
+666627916666
+
+GitHub Pages: upload index.html và thư mục assets vào thư mục gốc repository.
+
+
+NHẠC NỀN: assets/eden-song.mp3
+Website sẽ thử tự động phát nhạc khi mở trang. Lưu ý: Chrome/Cốc Cốc có thể chặn autoplay có âm thanh; khi đó người dùng chỉ cần bấm nút 🔇/🔊 hoặc chạm/click lần đầu để nhạc bắt đầu.
