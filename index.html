@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eden Tokuda — Hắc Shop</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--red:#ff2b0b;--orange:#ff7a18;--gold:#ffc15a;--bg:#050000;--panel:rgba(20,3,2,.9);--line:#6b1a0d}
+body{margin:0;background:#030000;color:#eee;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:-15%;z-index:-5;background:
+radial-gradient(circle at 15% 80%,rgba(255,56,0,.45),transparent 25%),
+radial-gradient(circle at 85% 70%,rgba(255,20,0,.4),transparent 25%),
+radial-gradient(circle at 50% 110%,rgba(255,116,0,.55),transparent 30%),
+linear-gradient(#020000,#180000 55%,#050000);animation:heat 7s ease-in-out infinite alternate}
+body:after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;opacity:.65;background-image:
+radial-gradient(circle,rgba(255,120,20,.9) 0 1px,transparent 2px),
+radial-gradient(circle,rgba(255,35,0,.8) 0 1px,transparent 2px);
+background-size:87px 137px,137px 177px;animation:embers 5s linear infinite}
+@keyframes heat{to{transform:scale(1.07);filter:saturate(1.35)}}@keyframes embers{to{background-position:20px -240px,-30px -300px}}
+.fire{position:fixed;bottom:-100px;left:-5%;width:110%;height:310px;z-index:-3;filter:blur(15px);background:
+radial-gradient(ellipse at 5% 100%,rgba(255,90,0,.8),transparent 25%),
+radial-gradient(ellipse at 25% 100%,rgba(255,20,0,.8),transparent 27%),
+radial-gradient(ellipse at 50% 100%,rgba(255,110,0,.8),transparent 28%),
+radial-gradient(ellipse at 75% 100%,rgba(255,25,0,.8),transparent 28%),
+radial-gradient(ellipse at 95% 100%,rgba(255,80,0,.8),transparent 25%);
+animation:fire 2.5s ease-in-out infinite alternate}
+@keyframes fire{to{transform:scaleY(1.25) translateY(-18px)}}
+header{position:sticky;top:0;z-index:30;background:rgba(4,0,0,.9);border-bottom:1px solid #4b1009;backdrop-filter:blur(14px)}
+.nav{height:76px;width:min(1200px,94%);margin:auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900;letter-spacing:1px}.brand img{width:46px;height:46px;object-fit:cover;border-radius:10px;border:1px solid #8b1e0d;box-shadow:0 0 20px #ff2b0b44}
+nav a{color:#ddd;text-decoration:none;margin-left:24px;font-size:14px}nav a:hover{color:#ff5b37}
+.container{width:min(1200px,92%);margin:auto}
+.hero{text-align:center;padding:62px 10px 50px}.hero-logo{width:140px;height:140px;object-fit:cover;border-radius:50%;border:2px solid #9d2612;box-shadow:0 0 50px #ff2b0b55}
+.badge{display:inline-block;margin-top:18px;padding:7px 14px;border:1px solid #8b2010;border-radius:99px;color:#ff785b;background:#250603;font-size:11px;letter-spacing:2px;font-weight:900}
+h1{font-size:clamp(45px,7vw,78px);margin:16px 0 8px;text-transform:uppercase;text-shadow:0 0 30px #ff2b0b88}h1 span{color:var(--red)}
+.hero p{max-width:700px;margin:0 auto 24px;color:#aaa;line-height:1.7}.btn{display:inline-block;padding:13px 22px;border-radius:11px;color:#fff;text-decoration:none;background:linear-gradient(135deg,#ff421a,#890000);font-weight:900}
+.title{font-size:30px;text-transform:uppercase;margin:20px 0}.title span{color:#ff4a25}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:linear-gradient(145deg,rgba(25,3,2,.97),rgba(7,0,0,.97));border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 20px 60px #0008;transition:.2s}.card:hover{transform:translateY(-5px);border-color:#bd3118}
+.cover{height:250px;border-radius:13px;overflow:hidden;background:#120000;border:1px solid #3b100a}.cover img{width:100%;height:100%;object-fit:cover}.card h3{font-size:22px;margin:15px 3px 7px}.desc{color:#999;font-size:14px;line-height:1.5;min-height:42px}.price{color:#ff5a34;font-size:20px;font-weight:900;margin:10px 3px}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.plan{padding:11px 9px;text-align:center;border:1px solid #481109;border-radius:10px;background:#0b0101}.plan b{display:block;color:#ff6544;font-size:13px}.plan span{display:block;margin-top:4px;font-weight:900}
+.buy{width:100%;padding:12px;border:0;border-radius:10px;background:linear-gradient(135deg,#ff4218,#900000);color:#fff;font-weight:900;cursor:pointer}
+section#payment{margin-top:55px}.payment-box{display:grid;grid-template-columns:1fr 1fr;gap:22px}.box{background:rgba(13,1,1,.9);border:1px solid #4b120a;border-radius:18px;padding:24px}.box h2{margin-top:0}.bank{padding:11px;border:1px solid #32100a;background:#070000;border-radius:9px;margin-top:9px}.bank strong{color:#ff603a}
+footer{margin-top:65px;padding:30px;text-align:center;color:#777;border-top:1px solid #35100a}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.86);align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}
+.modalbox{width:min(500px,100%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#180302,#080000);border:1px solid #8f2512;border-radius:18px;padding:23px;box-shadow:0 0 80px #ff2b0b22}.close{float:right;background:none;border:0;color:#aaa;font-size:27px;cursor:pointer}
+label{display:block;color:#bbb;font-size:13px;margin:10px 0 6px}select{width:100%;padding:13px;border-radius:10px;background:#080000;color:#fff;border:1px solid #56150b;font-size:15px}
+.confirm{margin-top:15px;width:100%;padding:13px;border:0;border-radius:10px;background:linear-gradient(135deg,#ff4218,#8c0000);color:#fff;font-weight:900;cursor:pointer}
+#payStep{display:none;text-align:center}.qr{width:min(340px,100%);border-radius:15px;border:2px solid #7d1d0e;box-shadow:0 0 35px #ff2b0b33;background:#fff}.amount{font-size:28px;color:#ff5935;font-weight:900;margin:10px}.small{font-size:12px;color:#888;line-height:1.6}.timer{color:#ffc15a;font-weight:900;font-size:18px;margin:10px}
+.back{margin-top:10px;background:#1b0503;border:1px solid #4e120a;color:#ddd}
+@media(max-width:850px){nav{display:none}.products,.payment-box{grid-template-columns:1fr}.plans{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="fire"></div>
+<header><div class="nav">
+<a class="brand" href="#home"><img src="assets/the-isle.png" alt="Eden Tokuda"><span>EDEN TOKUDA</span></a>
+<nav><a href="#home">Trang chủ</a><a href="#products">Sản phẩm</a><a href="#payment">Thanh toán</a><a href="#contact">Liên hệ</a></nav>
+</div></header>
+
+<section class="hero container" id="home">
+<img class="hero-logo" src="assets/the-isle.png" alt="Eden Tokuda">
+<div class="badge">EDEN TOKUDA SHOP</div>
+<h1>HẮC <span>SHOP</span></h1>
+<p>Shop Eden Tokuda — giao diện đỏ lửa, hiệu ứng rực cháy và thanh toán bằng VietQR.</p>
+<a class="btn" href="#products">XEM SẢN PHẨM</a>
+</section>
+
+<section class="container" id="products">
+<h2 class="title">Danh sách <span>sản phẩm</span></h2>
+<div class="products">
+<article class="card"><div class="cover"><img src="assets/batman.png" alt="Hắc Bat Man"></div><h3>Hắc Bat Man</h3><div class="desc">Sản phẩm Hắc Bat Man.</div><div class="price">Liên hệ</div><button class="buy" onclick="openOrder('Hắc Bat Man',null)">MUA NGAY</button></article>
+<article class="card"><div class="cover"><img src="assets/yq.png" alt="Hắc YQ"></div><h3>Hắc YQ</h3><div class="desc">Sản phẩm Hắc YQ.</div><div class="price">Liên hệ</div><button class="buy" onclick="openOrder('Hắc YQ',null)">MUA NGAY</button></article>
+<article class="card"><div class="cover"><img src="assets/the-isle.png" alt="Hắc The Isle"></div><h3>Hắc The Isle</h3><div class="desc">Chọn gói sử dụng.</div><div class="plans">
+<div class="plan"><b>Ngày</b><span>50.000đ</span></div><div class="plan"><b>Tuần</b><span>250.000đ</span></div><div class="plan"><b>Tháng</b><span>500.000đ</span></div><div class="plan"><b>Vĩnh viễn</b><span>1.000.000đ</span></div>
+</div><button class="buy" onclick="openOrder('Hắc The Isle','isle')">CHỌN GÓI</button></article>
+</div>
+</section>
+
+<section class="container" id="payment"><h2 class="title">Thanh <span>toán</span></h2>
+<div class="payment-box">
+<div class="box"><h2>💳 Thông tin nhận tiền</h2><div class="bank">Ngân hàng: <strong>MB Bank</strong></div><div class="bank">Chủ TK: <strong>LAM BAO SON</strong></div><div class="bank">Số TK: <strong>666627916666</strong></div><p style="color:#999;line-height:1.6">Khi đặt hàng, QR sẽ tự tạo theo đúng số tiền của gói đã chọn.</p></div>
+<div class="box"><h2>📲 VietQR</h2><p style="color:#999">QR mẫu bạn cung cấp được giữ trong thư mục assets. QR thanh toán theo đơn sẽ được tạo động để ghi đúng số tiền.</p></div>
+</div></section>
+<footer id="contact">© 2026 EDEN TOKUDA — HẮC SHOP</footer>
+
+<div class="modal" id="modal"><div class="modalbox">
+<button class="close" onclick="closeOrder()">×</button>
+<div id="chooseStep"><h2>🧾 Chọn gói dịch vụ</h2><p id="selectedProduct" style="color:#ff5b35;font-weight:900"></p>
+<label>Chọn gói</label>
+<select id="package">
+<option value="50000">Hắc The Isle — Gói ngày (50k)</option>
+<option value="250000">Hắc The Isle — Gói tuần (250k)</option>
+<option value="500000">Hắc The Isle — Gói tháng (500k)</option>
+<option value="1000000">Hắc The Isle — Gói vĩnh viễn (1000k)</option>
+</select>
+<button class="confirm" onclick="showPayment()">XÁC NHẬN ĐƠN</button>
+<p class="small">Chỉ cần chọn gói. Không yêu cầu nhập Zalo, Discord hay ghi chú.</p></div>
+<div id="payStep"><h2>🔥 THANH TOÁN</h2><p id="payProduct" style="font-weight:900"></p><div class="amount" id="amount"></div>
+<img class="qr" id="dynamicQr" alt="VietQR thanh toán">
+<div class="timer">Mã QR có hiệu lực trong <span id="count">15:00</span></div>
+<p class="small">Quét mã bằng ứng dụng ngân hàng và chuyển <b>đúng số tiền</b> hiển thị.<br>Nội dung chuyển khoản được tạo tự động theo đơn.</p>
+<button class="confirm back" onclick="backChoose()">← ĐỔI GÓI</button></div>
+</div></div>
+<script>
+const prices={50000:'Gói ngày',250000:'Gói tuần',500000:'Gói tháng',1000000:'Gói vĩnh viễn'};
+let selectedProduct='',timer=null,seconds=900;
+function openOrder(name,type){
+ selectedProduct=name;
+ document.getElementById('modal').classList.add('open');
+ document.getElementById('chooseStep').style.display='block';
+ document.getElementById('payStep').style.display='none';
+ document.getElementById('selectedProduct').textContent='Sản phẩm: '+name;
+ const sel=document.getElementById('package');
+ if(type!=='isle'){sel.disabled=true;sel.innerHTML='<option value="">Liên hệ để mua sản phẩm này</option>';}
+ else {sel.disabled=false;sel.innerHTML='<option value="50000">Hắc The Isle — Gói ngày (50k)</option><option value="250000">Hắc The Isle — Gói tuần (250k)</option><option value="500000">Hắc The Isle — Gói tháng (500k)</option><option value="1000000">Hắc The Isle — Gói vĩnh viễn (1000k)</option>';}
+}
+function closeOrder(){document.getElementById('modal').classList.remove('open');if(timer)clearInterval(timer)}
+function showPayment(){
+ const val=Number(document.getElementById('package').value);
+ if(!val){alert('Sản phẩm này chưa có giá online.');return}
+ const label=prices[val];
+ document.getElementById('chooseStep').style.display='none';
+ document.getElementById('payStep').style.display='block';
+ document.getElementById('payProduct').textContent='Hắc The Isle — '+label;
+ document.getElementById('amount').textContent=val.toLocaleString('vi-VN')+'đ';
+ const info='EDEN '+label.replaceAll(' ','');
+ const url='https://img.vietqr.io/image/970422-666627916666-compact2.png?amount='+val+'&addInfo='+encodeURIComponent(info)+'&accountName='+encodeURIComponent('LAM BAO SON');
+ document.getElementById('dynamicQr').src=url;
+ seconds=900;updateTimer();if(timer)clearInterval(timer);timer=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timer)}},1000);
+}
+function updateTimer(){const m=String(Math.floor(seconds/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');document.getElementById('count').textContent=m+':'+s}
+function backChoose(){document.getElementById('payStep').style.display='none';document.getElementById('chooseStep').style.display='block'}
+window.onclick=e=>{if(e.target===document.getElementById('modal'))closeOrder()}
+</script>
+</body></html>
