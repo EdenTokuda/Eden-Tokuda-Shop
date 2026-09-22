@@ -69,8 +69,8 @@ label{display:block;color:#bbb;font-size:13px;margin:10px 0 6px}select{width:100
 <section class="container" id="products">
 <h2 class="title">Danh sách <span>sản phẩm</span></h2>
 <div class="products">
-<article class="card"><div class="cover"><img src="assets/batman.png" alt="Hắc Bat Man"></div><h3>Hắc Bat Man</h3><div class="desc">Sản phẩm Hắc Bat Man.</div><div class="price">Liên hệ</div><button class="buy" onclick="openOrder('Hắc Bat Man',null)">MUA NGAY</button></article>
-<article class="card"><div class="cover"><img src="assets/yq.png" alt="Hắc YQ"></div><h3>Hắc YQ</h3><div class="desc">Sản phẩm Hắc YQ.</div><div class="price">Liên hệ</div><button class="buy" onclick="openOrder('Hắc YQ',null)">MUA NGAY</button></article>
+<article class="card"><div class="cover"><img src="assets/batman.png" alt="Hắc Bat Man"></div><h3>Hắc Bat Man</h3><div class="desc">Sản phẩm Hắc Bat Man.</div><div class="price">40.000đ</div><button class="buy" onclick="openOrder('Hắc Bat Man','fixed')">MUA NGAY</button></article>
+<article class="card"><div class="cover"><img src="assets/yq.png" alt="Hắc YQ"></div><h3>Hắc YQ</h3><div class="desc">Sản phẩm Hắc YQ.</div><div class="price">40.000đ</div><button class="buy" onclick="openOrder('Hắc YQ','fixed')">MUA NGAY</button></article>
 <article class="card"><div class="cover"><img src="assets/the-isle.png" alt="Hắc The Isle"></div><h3>Hắc The Isle</h3><div class="desc">Chọn gói sử dụng.</div><div class="plans">
 <div class="plan"><b>Ngày</b><span>50.000đ</span></div><div class="plan"><b>Tuần</b><span>250.000đ</span></div><div class="plan"><b>Tháng</b><span>500.000đ</span></div><div class="plan"><b>Vĩnh viễn</b><span>1.000.000đ</span></div>
 </div><button class="buy" onclick="openOrder('Hắc The Isle','isle')">CHỌN GÓI</button></article>
@@ -103,17 +103,18 @@ label{display:block;color:#bbb;font-size:13px;margin:10px 0 6px}select{width:100
 <button class="confirm back" onclick="backChoose()">← ĐỔI GÓI</button></div>
 </div></div>
 <script>
-const prices={50000:'Gói ngày',250000:'Gói tuần',500000:'Gói tháng',1000000:'Gói vĩnh viễn'};
-let selectedProduct='',timer=null,seconds=900;
+const prices={40000:'Gói 40k',50000:'Gói ngày',250000:'Gói tuần',500000:'Gói tháng',1000000:'Gói vĩnh viễn'};
+let selectedProduct='',selectedType='',timer=null,seconds=900;
 function openOrder(name,type){
  selectedProduct=name;
+ selectedType=type;
  document.getElementById('modal').classList.add('open');
  document.getElementById('chooseStep').style.display='block';
  document.getElementById('payStep').style.display='none';
  document.getElementById('selectedProduct').textContent='Sản phẩm: '+name;
  const sel=document.getElementById('package');
- if(type!=='isle'){sel.disabled=true;sel.innerHTML='<option value="">Liên hệ để mua sản phẩm này</option>';}
- else {sel.disabled=false;sel.innerHTML='<option value="50000">Hắc The Isle — Gói ngày (50k)</option><option value="250000">Hắc The Isle — Gói tuần (250k)</option><option value="500000">Hắc The Isle — Gói tháng (500k)</option><option value="1000000">Hắc The Isle — Gói vĩnh viễn (1000k)</option>';}
+ if(type==='fixed'){sel.disabled=false;sel.innerHTML='<option value="40000">'+name+' — 40.000đ</option>';}
+ else if(type==='isle'){sel.disabled=false;sel.innerHTML='<option value="50000">Hắc The Isle — Gói ngày (50k)</option><option value="250000">Hắc The Isle — Gói tuần (250k)</option><option value="500000">Hắc The Isle — Gói tháng (500k)</option><option value="1000000">Hắc The Isle — Gói vĩnh viễn (1000k)</option>';}
 }
 function closeOrder(){document.getElementById('modal').classList.remove('open');if(timer)clearInterval(timer)}
 function showPayment(){
@@ -122,9 +123,9 @@ function showPayment(){
  const label=prices[val];
  document.getElementById('chooseStep').style.display='none';
  document.getElementById('payStep').style.display='block';
- document.getElementById('payProduct').textContent='Hắc The Isle — '+label;
+ document.getElementById('payProduct').textContent=selectedProduct+' — '+label;
  document.getElementById('amount').textContent=val.toLocaleString('vi-VN')+'đ';
- const info='EDEN '+label.replaceAll(' ','');
+ const info='EDEN '+selectedProduct.replaceAll(' ','')+' '+label.replaceAll(' ','');
  const url='https://img.vietqr.io/image/970422-666627916666-compact2.png?amount='+val+'&addInfo='+encodeURIComponent(info)+'&accountName='+encodeURIComponent('LAM BAO SON');
  document.getElementById('dynamicQr').src=url;
  seconds=900;updateTimer();if(timer)clearInterval(timer);timer=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timer)}},1000);
